@@ -1,0 +1,98 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com-badrit-base64": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-base64-to-gallery": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-email": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-email-composer": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-nativeaudio": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-progress": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "org.pbernasconi.progressindicator": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-sqlite-ext": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.mut.repairservice"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyBShHXSCHVBaTt0g2ndJClvpuitY3ak4sE",
+            "PACKAGE_NAME": "com.mut.repairservice"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        }
+    }
+}

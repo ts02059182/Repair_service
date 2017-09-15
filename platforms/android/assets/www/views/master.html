@@ -1,0 +1,19 @@
+<ion-view view-title="Login" cache-view="false" hide-nav-bar="true" class="auth-bg background-login">
+  <ion-content ng-controller="MasterController">
+  <button class="button button-small top-btn" ng-click="toregister()"> <i class="icon ion-android-person-add"> </i> Register</button>
+  <div class="auth">
+    <div class="container animated fadeInUp">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="username" ng-model="userdata.username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="password" ng-model="userpassword.password">
+        </label>
+      </div>
+      <button class="button button-small button-full button-assertive login" ng-click="tologin(userdata,userpassword)">Login</button>
+      <button class="button button-small button-full button-positive fb  ion-social-facebook" ng-click="login()"> Login With Facebook</button>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

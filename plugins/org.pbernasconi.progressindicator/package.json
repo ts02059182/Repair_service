@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+        "spec": "git+https://github.com/pbernasconi/cordova-progressIndicator.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:pbernasconi/cordova-progressIndicator.git",
+          "sshUrl": "git+ssh://git@github.com/pbernasconi/cordova-progressIndicator.git",
+          "httpsUrl": "git+https://github.com/pbernasconi/cordova-progressIndicator.git",
+          "gitUrl": "git://github.com/pbernasconi/cordova-progressIndicator.git",
+          "shortcut": "github:pbernasconi/cordova-progressIndicator",
+          "directUrl": "https://raw.githubusercontent.com/pbernasconi/cordova-progressIndicator/master/package.json"
+        }
+      },
+      "D:\\ionic\\merchandise\\node_modules"
+    ]
+  ],
+  "_from": "git+https://github.com/pbernasconi/cordova-progressIndicator.git",
+  "_id": "cordova-plugin-progressindicator@1.2.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-progressindicator",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+    "spec": "git+https://github.com/pbernasconi/cordova-progressIndicator.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:pbernasconi/cordova-progressIndicator.git",
+      "sshUrl": "git+ssh://git@github.com/pbernasconi/cordova-progressIndicator.git",
+      "httpsUrl": "git+https://github.com/pbernasconi/cordova-progressIndicator.git",
+      "gitUrl": "git://github.com/pbernasconi/cordova-progressIndicator.git",
+      "shortcut": "github:pbernasconi/cordova-progressIndicator",
+      "directUrl": "https://raw.githubusercontent.com/pbernasconi/cordova-progressIndicator/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/pbernasconi/cordova-progressIndicator.git#3f2885e5e4c913d642d5c1362b7dabc7f4484676",
+  "_shasum": "3459fb74dc33ba3b274abda0529941e719978cd9",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/pbernasconi/cordova-progressIndicator.git",
+  "_where": "D:\\ionic\\merchandise\\node_modules",
+  "author": {
+    "name": "Paolo Bernasconi"
+  },
+  "bugs": {
+    "url": "https://github.com/pbernasconi/cordova-progressIndicator/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-progressindicator",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "cordova plugin to show a native progress indicator",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.1.0"
+    }
+  ],
+  "gitHead": "3f2885e5e4c913d642d5c1362b7dabc7f4484676",
+  "homepage": "http://paolobernasconi.com/cordova-progressIndicator/",
+  "keywords": [
+    "cordova",
+    "progress",
+    "indicator",
+    "activity",
+    "load",
+    "progress-indicator",
+    "progressindicator",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-amazon-fireos",
+    "cordova-ios"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-progressindicator",
+  "optionalDependencies": {},
+  "readme": "# Cordova Progress-Indicator Plugin#\r\nThis plugin allows you to show a native Progress Indicator on iOS - by [Paolo Bernasconi](https://github.com/pbernasconi)\r\n\r\nThere are several types of indicators available:\r\n\r\n* [Simple](http://pbernasconi.github.io/cordova-progressIndicator/#simple)\r\n* [Determinate](http://pbernasconi.github.io/cordova-progressIndicator/#determinate)\r\n* [Annular](http://pbernasconi.github.io/cordova-progressIndicator/#annular)\r\n* [Bar](http://pbernasconi.github.io/cordova-progressIndicator/#bar)\r\n* [Success](http://pbernasconi.github.io/cordova-progressIndicator/#others)\r\n* [Simple Text](http://pbernasconi.github.io/cordova-progressIndicator/#others)\r\n\r\n# Install\r\n\r\n```\r\nnpm install cordova-plugin-progressindicator\r\n```\r\n\r\n# [View the Docs](http://pbernasconi.github.io/cordova-progressIndicator/)\r\n\r\nThe Docs are situated at [http://pbernasconi.github.io/cordova-progressIndicator/](http://pbernasconi.github.io/cordova-progressIndicator/)\r\n\r\n\r\n## Screenshots\r\n\r\niOS\r\n\r\n![ScreenShot](demo/screenshots/simple-large-img.jpg )\r\n\r\n|Simple|Label|Label-Detail|Success|Text Top|Text Botom|\r\n|------|-----|------------|-------|--------|----------|\r\n|![](demo/screenshots/simple.jpg)|![](demo/screenshots/simple-label.jpg)|![](demo/screenshots/simple-label-detail.jpg)|![](demo/screenshots/success.jpg)|![](demo/screenshots/text-top.jpg)|![](demo/screenshots/text-bottom.jpg)\r\n\r\n\r\n|Determinate|Determinate Label|Annular|Annular Label|Bar|Bar Label|\r\n|-----------|-----------------|-------|-------------|---|---------\r\n|![](demo/screenshots/determinate-simple.jpg)|![](demo/screenshots/determinate-label.jpg)|![](demo/screenshots/annular-simple.jpg)|![](demo/screenshots/annular-label.jpg)|![](demo/screenshots/bar-simple.jpg)|![](demo/screenshots/bar-label.jpg)\r\n\r\n\r\n\r\n### CREDITS\r\n\r\n - [MBProgressHUD](https://github.com/jdg/MBProgressHUD)\r\n - [Cordova-ActivityIndicator](https://github.com/Initsogar/cordova-activityindicator)\r\n - \r\n \r\n#### License\r\n\r\nApache license 2.0 - Use this plugin for any production / development needs, and if you'd like to make an attribution to me somewhere.\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbernasconi/cordova-progressIndicator.git"
+  },
+  "version": "1.2.0"
+}

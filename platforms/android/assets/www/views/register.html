@@ -1,0 +1,32 @@
+<ion-view view-title="Reg" cache-view="false" hide-nav-bar="true" class="auth-bg background-login">
+<ion-content ng-controller="RegisterController">
+  <div class="auth_register">
+    <div class="container animated fadeInUp">
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="username" ng-model="username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="password" ng-model="password">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="confirm password" ng-model="conpassword">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="name" ng-model="name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="last name" ng-model="lname">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="email" ng-model="email">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="mobile" ng-model="mobile">
+        </label>
+      </div>
+      <button class="button button-small button-full button-assertive login" ng-click="add_register(username,password,conpassword,name,lname,email,mobile)">SignUp</button>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

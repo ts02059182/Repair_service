@@ -1,0 +1,108 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-progress",
+        "scope": null,
+        "escapedName": "cordova-plugin-progress",
+        "name": "cordova-plugin-progress",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\ionic\\merchandise\\node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-progress@latest",
+  "_id": "cordova-plugin-progress@0.3.0",
+  "_inCache": true,
+  "_location": "/cordova-plugin-progress",
+  "_nodeVersion": "0.12.0",
+  "_npmUser": {
+    "name": "leecrossley",
+    "email": "leee@hotmail.co.uk"
+  },
+  "_npmVersion": "2.5.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-progress",
+    "scope": null,
+    "escapedName": "cordova-plugin-progress",
+    "name": "cordova-plugin-progress",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-progress/-/cordova-plugin-progress-0.3.0.tgz",
+  "_shasum": "7b54bb6631e756e1e276232312d00e1b5076e8f9",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-progress",
+  "_where": "D:\\ionic\\merchandise\\node_modules",
+  "author": {
+    "name": "Lee Crossley",
+    "email": "leee@hotmail.co.uk",
+    "url": "http://ilee.co.uk/"
+  },
+  "bugs": {
+    "url": "https://github.com/leecrossley/cordova-plugin-progress/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-progress",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova / PhoneGap Plugin for Progress HUD Notifications via KVNProgress",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "7b54bb6631e756e1e276232312d00e1b5076e8f9",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-progress/-/cordova-plugin-progress-0.3.0.tgz"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    },
+    {
+      "name": "apple-ios",
+      "version": ">=8.2.0"
+    }
+  ],
+  "gitHead": "62b5b87cc4b184d2a7d59eb85b5df79ae91cfcc1",
+  "homepage": "https://github.com/leecrossley/cordova-plugin-progress#readme",
+  "keywords": [
+    "cordova",
+    "progress",
+    "hud",
+    "notification",
+    "message",
+    "toast",
+    "status",
+    "overlay",
+    "loader",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "leecrossley",
+      "email": "leee@hotmail.co.uk"
+    }
+  ],
+  "name": "cordova-plugin-progress",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leecrossley/cordova-plugin-progress.git"
+  },
+  "scripts": {},
+  "version": "0.3.0"
+}
