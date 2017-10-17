@@ -31,6 +31,33 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
         map: map
       });
 
+      var request = $http({
+
+        method: "post",
+        url: "http://61.91.124.155/repairservice_api/select_tech.php",
+        crossDomain: true,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        });
+
+      request.success(function(response) {
+        $scope.lat_long = response.lat_long;
+          angular.forEach($scope.lat_long, function(a) {
+            tlat = parseFloat(a.lat);
+            tlong = parseFloat(a.long);
+
+            var testLatLng = {lat: tlat, lng: tlong};
+            var userMarker = new google.maps.Marker({
+            position: testLatLng,
+            map: map
+            });
+
+          });
+        
+        
+    });
+
+      
+
       $scope.map = map;
 
       $timeout(function() {

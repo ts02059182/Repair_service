@@ -47,8 +47,7 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
       });
 
       request.success(function(data) {
-        if (data > 0) {
-
+        if (data == 2) {
           $state.go('menu.home');
         } else {
           $ionicPopup.alert({
