@@ -28,8 +28,7 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
       var userMarker = new google.maps.Marker({
         position: myLatlng,
-        map: map,
-        icon: im
+        map: map
       });
 
       $scope.map = map;
