@@ -46,17 +46,23 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
             tlong = parseFloat(a.long);
 
             var testLatLng = {lat: tlat, lng: tlong};
-            var userMarker = new google.maps.Marker({
+            var techMarker = new google.maps.Marker({
             position: testLatLng,
             map: map,
             icon: im
             });
+
+            google.maps.event.addListener(techMarker, 'click', function() {
+          alert('test');
+        });
 
           });
         
         
     });
 
+
+      
       
 
       $scope.map = map;
@@ -69,6 +75,8 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
 
       
     }
+
+
 
     function onError(error) {
       alert(error);
