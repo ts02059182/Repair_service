@@ -3,7 +3,7 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
   $ionicPlatform.ready(function(timeout,ionicLoading) {
     
 
-    var im = 'file:///android_asset/www/img/marker2.png';
+    var im = 'file:///android_asset/www/img/workshop.png';
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     function onSuccess(position,timeout,ionicLoading) {
@@ -48,7 +48,8 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
             var testLatLng = {lat: tlat, lng: tlong};
             var userMarker = new google.maps.Marker({
             position: testLatLng,
-            map: map
+            map: map,
+            icon: im
             });
 
           });
