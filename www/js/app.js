@@ -17,6 +17,7 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
 
         });
     })
+
     .config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
     $sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http[s]?):\/\/(w{3}.)?youtube\.com/.+$')]);
@@ -50,6 +51,26 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
           'pageContent': {
             templateUrl: 'views/home.html',
             controller: 'HomeController'
+          }
+        }
+      })
+
+    .state('menu.history', {
+        url: '/history',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/history.html',
+            controller: 'HistoryController'
+          }
+        }
+      })
+
+    .state('menu.profiles', {
+        url: '/profiles',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/profiles.html',
+            controller: 'ProfilesController'
           }
         }
       })
