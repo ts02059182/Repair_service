@@ -1,12 +1,12 @@
-app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$cordovaNetwork', '$ionicPlatform', '$location', '$ionicHistory', '$ionicPopup', '$cordovaCamera', '$cordovaDevice', '$stateParams', '$timeout', '$ionicLoading', function($scope,$cordovaOauth, $state, $http, $cordovaNetwork, $ionicPlatform, $location, $ionicHistory, $ionicPopup, $cordovaCamera, $cordovaDevice, $stateParams, $timeout, $ionicLoading) {
+app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '$cordovaNetwork', '$ionicPlatform', '$location', '$ionicHistory', '$ionicPopup', '$cordovaCamera', '$cordovaDevice', '$stateParams', '$timeout', '$ionicLoading', function($scope, $cordovaOauth, $state, $http, $cordovaNetwork, $ionicPlatform, $location, $ionicHistory, $ionicPopup, $cordovaCamera, $cordovaDevice, $stateParams, $timeout, $ionicLoading) {
 
-  $ionicPlatform.ready(function(timeout,ionicLoading) {
-    
+  $ionicPlatform.ready(function(timeout, ionicLoading) {
+
 
     var im = 'file:///android_asset/www/img/workshop.png';
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-    function onSuccess(position,timeout,ionicLoading) {
+    function onSuccess(position, timeout, ionicLoading) {
       latvalue = position.coords.latitude;
       lngvalue = position.coords.longitude;
       timestamp = position.timestamp;
@@ -31,49 +31,63 @@ app.controller('MapController', ['$scope','$cordovaOauth', '$state', '$http', '$
         map: map
       });
 
+
       var request = $http({
 
         method: "post",
         url: "http://61.91.124.155/repairservice_api/select_tech.php",
         crossDomain: true,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        });
+      });
 
       request.success(function(response) {
         $scope.lat_long = response.lat_long;
-          angular.forEach($scope.lat_long, function(a) {
-            tlat = parseFloat(a.lat);
-            tlong = parseFloat(a.long);
+        angular.forEach($scope.lat_long, function(a, k) {
+          tlat = parseFloat(a.lat);
+          tlong = parseFloat(a.long);
+          var infowindow = new google.maps.InfoWindow();
 
-            var testLatLng = {lat: tlat, lng: tlong};
-            var techMarker = new google.maps.Marker({
+          var testLatLng = { lat: tlat, lng: tlong };
+          var techMarker = new google.maps.Marker({
             position: testLatLng,
             map: map,
             icon: im
-            });
+          });
 
-            google.maps.event.addListener(techMarker, 'click', function() {
-          alert('test');
+          google.maps.event.addListener(techMarker, 'click', (function(techMarker, k) {
+            return function() {
+              var confirmPopup = $ionicPopup.confirm({
+                title: 'Logout confirmation',
+                template: 'lat : '+$scope.lat_long[k].lat+'long : '+$scope.lat_long[k].long
+              });
+              // infowindow.setContent($scope.lat_long[k].lat);
+              // infowindow.open(map, techMarker);
+            }
+          })(techMarker, k));
+
+
+          // google.maps.event.addListener(techMarker, 'click', function() {
+          //   alert(tlat);
+          // });
+
         });
 
-          });
-        
-        
-    });
+
+      });
 
 
-      
-      
+
+
 
       $scope.map = map;
 
       $timeout(function() {
-      $ionicLoading.hide();
+        $ionicLoading.hide();
 
       }, 2000);
 
 
-      
+
     }
 
 
