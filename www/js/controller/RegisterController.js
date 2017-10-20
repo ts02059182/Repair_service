@@ -56,4 +56,9 @@ app.controller('RegisterController', ['$scope', '$state', '$http', '$cordovaNetw
         }
     }
 
+    $ionicPlatform.registerBackButtonAction(function(event) {
+      $ionicHistory.goBack();
+    
+  }, 101);
+
 }])

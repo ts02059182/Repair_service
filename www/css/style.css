@@ -10063,6 +10063,36 @@ a.button {
       bottom: 5px;
       background: rgba(239, 78, 58, 0.76); }
 
+.auth_request {
+  height: 100%;
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%; }
+  .auth_request .container {
+    margin: auto;
+    max-width: 400px;
+    padding: 10px;
+    background: rgba(249, 249, 249, 0.48);
+    box-shadow: 1px 5px 15px 1px rgba(0, 0, 0, 0.85); }
+    .auth_request .container .list {
+      margin-left: 5px;
+      margin-right: 5px;
+      background: rgba(255, 255, 255, 0.2); }
+      .auth_request .container .list .item {
+        background: transparent;
+        padding-left: 0; }
+        .auth_request .container .list .item input {
+          font-weight: bold;
+          text-align: center;
+          padding: 0; }
+    .auth_request .container .fb {
+      background: rgba(59, 89, 152, 0.76); }
+    .auth_request .container .login {
+      margin: 0;
+      padding: 0;
+      bottom: 5px;
+      background: rgba(239, 78, 58, 0.76); }
+
 .top-btn {
   margin: 20px;
   float: right;

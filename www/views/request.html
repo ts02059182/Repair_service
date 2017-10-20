@@ -1,0 +1,36 @@
+<ion-view view-title="Request Form" cache-view="false" class="auth-bg background-login">
+ 
+  <ion-content ng-controller="RequestController">
+
+	<div class="auth_request" style="margin-bottom: 10%">
+    <div class="container animated fadeInUp">
+      <div class="list list-inset">
+        <label class="item item-input item-floating-label" style="background: White ;">
+                <span class="input-label">Appointment Date</span>
+                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+         </label>
+        <label class="item item-input item-floating-label" style="background: White ;">
+                <span class="input-label">Contact Number</span>
+                <input type="text" name="Contact_Number" placeholder="Contact Number">
+        </label>
+        <label class="item item-input item-floating-label" style="background: White ;">
+                <span class="input-label">Addition detail</span>
+                <input type="text" name="Addition_detail" placeholder="Addition detail">
+            </label>
+      </div>
+      <p style="text-align: center">
+            <img ng-show="imgURI1 !== undefined" style="width: 100px;height: 100px;margin-top: 10%;margin-right: 5%" ng-src="{{imgURI1}}">
+            <img ng-show="imgURI1 === undefined" style="margin-right: 5%" ng-src="img/camera.png">
+            <img ng-show="imgURI2 !== undefined" style="width: 100px;height: 100px;" ng-src="{{imgURI2}}">
+            <img ng-show="imgURI2 === undefined" style="margin-right: 5%" ng-src="img/camera.png">
+            <img ng-show="imgURI3 !== undefined" style="width: 100px;height: 100px;" ng-src="{{imgURI3}}">
+            <img ng-show="imgURI3 === undefined"  style="margin-right: 5%" ng-src="img/camera.png">
+
+              
+    </p>
+      <button class="button button-small button-full button-assertive login" ng-click="tologin(userdata,userpassword)">Confirm</button>
+    </div>
+  </div>
+
+  </ion-content>
+</ion-view>

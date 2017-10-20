@@ -96,6 +96,16 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
             controller: 'MapController'
           }
         }
+      })
+
+    .state('menu.request', {
+        url: '/request',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/request.html',
+            controller: 'RequestController'
+          }
+        }
       });
 
 

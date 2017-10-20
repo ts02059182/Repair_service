@@ -33,21 +33,13 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
       });
 
 
-      // var request = $http({
-
-      //   method: "post",
-      //   url: "http://61.91.124.155/repairservice_api/select_tech.php",
-      //   crossDomain: true,
-      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      // });
-
       var request = $http({
         method: "post",
         url: "http://61.91.124.155/repairservice_api/select_tech.php",
         crossDomain: true,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: {
-            catergory: $scope.catergory
+          catergory: $scope.catergory
         },
       });
 
@@ -69,17 +61,21 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
             return function() {
               var confirmPopup = $ionicPopup.confirm({
                 title: 'Technician Info',
-                template: 'Name: '+ $scope.lat_long[k].fname +''+ $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone
+                template: 'Name: ' + $scope.lat_long[k].fname + '' + $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone
               });
-              // infowindow.setContent($scope.lat_long[k].lat);
-              // infowindow.open(map, techMarker);
+
+              confirmPopup.then(function(res) {
+                if (res) {
+                  $state.go('menu.request');
+                } else {
+
+                }
+              });
+
             }
           })(techMarker, k));
 
 
-          // google.maps.event.addListener(techMarker, 'click', function() {
-          //   alert(tlat);
-          // });
 
         });
 
@@ -109,7 +105,6 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
 
   });
-
 
 
 }])
