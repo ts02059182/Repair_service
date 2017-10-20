@@ -49,7 +49,11 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
       request.success(function(data) {
         if (data == 2) {
           $state.go('menu.home');
-        } else {
+        } else if ( data ==3) {
+          $state.go('menu.hometec');
+        }
+
+        else {
           $ionicPopup.alert({
             title: 'Login Failure',
             template: 'You have failed to log in. Please try again.'
