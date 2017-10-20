@@ -66,5 +66,12 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
 
   }
 
+  $ionicPlatform.registerBackButtonAction(function(event) {
+    if ($ionicHistory.currentStateName() == 'master') {
+      ionic.Platform.exitApp();
+      //return false;
+    } 
+  }, 101);
+
 
 }])
