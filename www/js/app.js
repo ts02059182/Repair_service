@@ -77,6 +77,10 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
 
     .state('menu.hometec', {
         url: '/hometec',
+        params:{
+          username:null,
+          password:null
+        },
         views: {
           'pageContent': {
             templateUrl: 'views/hometec.html',
@@ -84,6 +88,8 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
           }
         }
       })    
+  
+
 
     .state('menu.map', {
         url: '/map',

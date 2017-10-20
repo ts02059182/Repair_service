@@ -28,6 +28,7 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
     });
     };
 
+
   $scope.tologin = function(userdata, userpassword) {
     if (userdata == undefined) {
       alert("please input username");
@@ -50,7 +51,7 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
         if (data == 2) {
           $state.go('menu.home');
         } else if ( data ==3) {
-          $state.go('menu.hometec');
+          $state.go('menu.hometec',{username:$scope.userdata.username,password:$scope.userpassword.password});
         }
 
         else {
