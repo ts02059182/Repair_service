@@ -43,6 +43,9 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
 
     .state('menu.home', {
         url: '/home',
+        params: {
+                catergory: null
+        },
         views: {
           'pageContent': {
             templateUrl: 'views/home.html',
@@ -63,6 +66,9 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
 
     .state('menu.map', {
         url: '/map',
+        params: {
+                catergory: null
+        },
         views: {
           'pageContent': {
             templateUrl: 'views/map.html',

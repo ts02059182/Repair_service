@@ -2,6 +2,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
   $ionicPlatform.ready(function(timeout, ionicLoading) {
 
+    $scope.catergory = $state.params.catergory;
 
     var im = 'file:///android_asset/www/img/workshop.png';
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -32,12 +33,22 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
       });
 
 
-      var request = $http({
+      // var request = $http({
 
+      //   method: "post",
+      //   url: "http://61.91.124.155/repairservice_api/select_tech.php",
+      //   crossDomain: true,
+      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      // });
+
+      var request = $http({
         method: "post",
         url: "http://61.91.124.155/repairservice_api/select_tech.php",
         crossDomain: true,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: {
+            catergory: $scope.catergory
+        },
       });
 
       request.success(function(response) {
@@ -57,8 +68,8 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
           google.maps.event.addListener(techMarker, 'click', (function(techMarker, k) {
             return function() {
               var confirmPopup = $ionicPopup.confirm({
-                title: 'Logout confirmation',
-                template: 'lat : '+$scope.lat_long[k].lat+'long : '+$scope.lat_long[k].long
+                title: 'Technician Info',
+                template: 'Name: '+ $scope.lat_long[k].fname +''+ $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone
               });
               // infowindow.setContent($scope.lat_long[k].lat);
               // infowindow.open(map, techMarker);
