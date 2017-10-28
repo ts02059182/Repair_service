@@ -51,7 +51,7 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
         if (data == 2) {
           $state.go('menu.home');
         } else if ( data ==3) {
-          $state.go('menu.hometec',{username:$scope.userdata.username,password:$scope.userpassword.password});
+          $state.go('menutec.hometec',{username:$scope.userdata.username,password:$scope.userpassword.password});
         }
 
         else {

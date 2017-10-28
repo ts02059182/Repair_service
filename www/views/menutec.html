@@ -1,0 +1,49 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <!-- CONTENT -->
+  <ion-side-menu-content class="desh-atom">
+
+    <!-- header bar -->
+    <!-- the nav bar will be updated as we navigate between views -->
+    <ion-nav-bar class="bar-calm">
+      <!-- back button, shown if applicable -->
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <!-- nav button, shown if applicable -->
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <!-- ROUTING INJECTED HERE: pageContent -->
+    <ion-nav-view name="pageContent"></ion-nav-view>
+
+  </ion-side-menu-content>
+
+  <!-- SIDEMENU -->
+  <ion-side-menu class="desh-atom" side="left" expose-aside-when="large">
+
+
+
+    <!-- menu content -->
+    <ion-content>
+      <ion-list>  
+        <ion-item class="item" menu-close ui-sref="menutec.hometec">
+          <i class="icon ion-settings"> </i> Services tec
+        </ion-item>
+        <ion-item class="item" menu-close ui-sref="menutec.historytec">
+          <i class="icon ion-clipboard"></i> History tec
+        </ion-item>
+        <ion-item class="item" menu-close ui-sref="menutec.profilestec">
+          <i class="icon ion-android-person"></i> Profiles tec
+        </ion-item>
+        <ion-item class="item" menu-close ui-sref="master">
+          <i class="icon ion-log-out"></i> Logout
+        </ion-item>
+      </ion-list>
+    </ion-content>
+
+  </ion-side-menu>
+
+</ion-side-menus>

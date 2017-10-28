@@ -2,35 +2,28 @@
  
   <ion-content ng-controller="HometecController">
   <div class="list padding">
-  <div class = "item item-icon-left item-icon-right" ng-click="tomap()">
-      <i class = "icon ion-ribbon-b"></i>
+ 
+
+<button class="button button-large button-balanced" ng-click="toonline()" >online</button>
+
+<button class="button button-large button-assertive" ng-click="tobusy()">busy</button>
+
+<button class="button button-large button-dark" ng-click="tooffline()">offline</button>
+   
+</div>
+ <div class="list padding">
+  <div class = "item item-icon-left item-icon-right" ng-click="touser()">
+      <i class = "icon ion-person-stalker"></i>
       <i class = "icon ion-ios-arrow-forward"></i>
-     tec Notebook and PC repair 
+      ลูกค้าที่แจ้งเข้ามา
+   </div>
+    <div class = "item item-icon-left item-icon-right" ng-click="towork()">
+      <i class = "icon ion-navigate"></i>
+      <i class = "icon ion-ios-arrow-forward"></i>
+      รายการนัดการทำงาน
    </div>
 
-   <div class = "item item-icon-left item-icon-right">
-      <i class = "icon ion-ribbon-b"></i>
-      <i class = "icon ion-ios-arrow-forward"></i>
-      tec Install Windows
-   </div>
-
-   <div class = "item item-icon-left item-icon-right">
-      <i class = "icon ion-ribbon-b"></i>
-      <i class = "icon ion-ios-arrow-forward"></i>
-      tec Virus remove
-   </div>
-
-   <div class = "item item-icon-left item-icon-right">
-      <i class = "icon ion-ribbon-b"></i>
-      <i class = "icon ion-ios-arrow-forward"></i>
-      tec Install Software and Anti-virus
-   </div>
-
-   <div class = "item item-icon-left item-icon-right">
-      <i class = "icon ion-ribbon-b"></i>
-      <i class = "icon ion-ios-arrow-forward"></i>
-      tec Hard disk data recovery
-   </div>
+   
    
 </div>
 

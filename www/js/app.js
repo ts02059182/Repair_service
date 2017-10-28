@@ -75,19 +75,7 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
         }
       })
 
-    .state('menu.hometec', {
-        url: '/hometec',
-        params:{
-          username:null,
-          password:null
-        },
-        views: {
-          'pageContent': {
-            templateUrl: 'views/hometec.html',
-            controller: 'HometecController'
-          }
-        }
-      })    
+     
   
 
 
@@ -112,9 +100,52 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
             controller: 'RequestController'
           }
         }
-      });
+      })
 
+    //tec
 
+    .state('menutec.hometec', {
+        url: '/hometec',
+        params:{
+          username:null,
+          password:null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/hometec.html',
+            controller: 'HometecController'
+          }
+        }
+      })
+
+    .state('menutec', {
+      url: '/menutec',
+      abstract: true,
+      templateUrl: 'views/menutec.html',
+      controller: 'MenutecController as menutec'
+    })
+
+    .state('menutec.historytec', {
+        url: '/historytec',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/historytec.html',
+            controller: 'HistorytecController'
+          }
+        }
+      })
+
+    .state('menutec.profilestec', {
+        url: '/profilestec',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/profilestec.html',
+            controller: 'ProfilestecController'
+          }
+        }
+      })
+
+    ;
       
     $urlRouterProvider.otherwise('/master');
     })
