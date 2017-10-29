@@ -82,7 +82,8 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
     .state('menu.map', {
         url: '/map',
         params: {
-                catergory: null
+                catergory: null,
+                tec_id: null
         },
         views: {
           'pageContent': {
@@ -94,6 +95,9 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
 
     .state('menu.request', {
         url: '/request',
+        params: {
+                tec_id: null
+        },
         views: {
           'pageContent': {
             templateUrl: 'views/request.html',

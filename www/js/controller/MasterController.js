@@ -1,4 +1,4 @@
-app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http', '$cordovaNetwork', '$ionicPlatform', '$location', '$ionicHistory', '$ionicPopup', '$cordovaCamera', '$cordovaDevice', '$stateParams', function($scope,$cordovaOauth, $state, $http, $cordovaNetwork, $ionicPlatform, $location, $ionicHistory, $ionicPopup, $cordovaCamera, $cordovaDevice, $stateParams) {
+app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http', '$cordovaNetwork', '$ionicPlatform', '$location', '$ionicHistory', '$ionicPopup', '$cordovaCamera', '$cordovaDevice', '$stateParams', '$rootScope', function($scope,$cordovaOauth, $state, $http, $cordovaNetwork, $ionicPlatform, $location, $ionicHistory, $ionicPopup, $cordovaCamera, $cordovaDevice, $stateParams, $rootScope) {
 
     window.cordovaOauth = $cordovaOauth;
     window.http = $http;
@@ -28,14 +28,13 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
     });
     };
 
-
   $scope.tologin = function(userdata, userpassword) {
     if (userdata == undefined) {
       alert("please input username");
     } else if (userpassword == undefined) {
       alert("please input password");
     } else {
-
+      $rootScope.username = $scope.userdata.username;
       var request = $http({
         method: "post",
         url: "http://61.91.124.155/repairservice_api/login.php",
@@ -51,7 +50,7 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
         if (data == 2) {
           $state.go('menu.home');
         } else if ( data ==3) {
-          $state.go('menutec.hometec',{username:$scope.userdata.username,password:$scope.userpassword.password});
+          $state.go('menu.hometec');
         }
 
         else {
