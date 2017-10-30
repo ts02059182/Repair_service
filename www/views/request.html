@@ -7,15 +7,15 @@
       <div class="list list-inset">
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Appointment Date</span>
-                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="request.appointment">
          </label>
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Contact Number</span>
-                <input type="text" name="Contact_Number" placeholder="Contact Number">
+                <input type="text" name="Contact_Number" placeholder="Contact Number" ng-model="request.contact">
         </label>
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Addition detail</span>
-                <input type="text" name="Addition_detail" placeholder="Addition detail">
+                <input type="text" name="Addition_detail" placeholder="Addition detail" ng-model="request.addition">
             </label>
       </div>
       <p style="text-align: center">
@@ -28,7 +28,7 @@
 
               
     </p>
-      <button class="button button-small button-full button-assertive login" ng-click="tologin(userdata,userpassword)">Confirm</button>
+      <button class="button button-small button-full button-assertive login" ng-click="confirm(request)">Confirm</button>
     </div>
   </div>
 

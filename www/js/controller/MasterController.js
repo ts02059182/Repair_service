@@ -35,6 +35,7 @@ app.controller('MasterController', ['$scope','$cordovaOauth', '$state', '$http',
       alert("please input password");
     } else {
       $rootScope.username = $scope.userdata.username;
+      $rootScope.password = $scope.userpassword.password;
       var request = $http({
         method: "post",
         url: "http://61.91.124.155/repairservice_api/login.php",
