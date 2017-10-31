@@ -191,4 +191,18 @@ app.controller('RequestController', ['$scope', '$cordovaOauth', '$state', '$http
 
   }
 
+  $ionicPlatform.registerBackButtonAction(function(event) {
+    $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 0
+    });
+
+    $timeout(function() {
+      $ionicHistory.goBack();
+    }, 2000);
+  }, 101);
+
 }])

@@ -11,7 +11,7 @@ app.controller('HomeController', ['$scope', '$cordovaOauth', '$state', '$http', 
     });
 
     $timeout(function() {
-      $state.go('menu.map', { catergory: catergory });
+      $state.go('menu.map', {catergory: catergory});
     }, 2000);
 
 

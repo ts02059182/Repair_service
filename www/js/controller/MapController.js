@@ -1,7 +1,6 @@
 app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '$cordovaNetwork', '$ionicPlatform', '$location', '$ionicHistory', '$ionicPopup', '$cordovaCamera', '$cordovaDevice', '$stateParams', '$timeout', '$ionicLoading', function($scope, $cordovaOauth, $state, $http, $cordovaNetwork, $ionicPlatform, $location, $ionicHistory, $ionicPopup, $cordovaCamera, $cordovaDevice, $stateParams, $timeout, $ionicLoading) {
 
   $ionicPlatform.ready(function(timeout, ionicLoading) {
-
     $scope.catergory = $state.params.catergory;
 
     var im = 'file:///android_asset/www/img/workshop.png';
@@ -106,5 +105,10 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
   });
 
+  $ionicPlatform.registerBackButtonAction(function(event) {
+
+      $ionicHistory.goBack();
+
+  }, 101);
 
 }])
