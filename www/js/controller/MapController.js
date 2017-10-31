@@ -7,7 +7,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
     var im = 'file:///android_asset/www/img/workshop.png';
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
-    function onSuccess(position, timeout, ionicLoading) {
+    function onSuccess(position) {
       latvalue = position.coords.latitude;
       lngvalue = position.coords.longitude;
       timestamp = position.timestamp;
@@ -82,10 +82,6 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
       });
 
-
-
-
-
       $scope.map = map;
 
       $timeout(function() {
@@ -93,14 +89,18 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
       }, 2000);
 
-
-
     }
 
 
-
     function onError(error) {
-      alert(error);
+      console.log(error);
+      $timeout(function() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+
+      }, 5000);
+
+      
     }
 
 
