@@ -36,7 +36,7 @@ app.controller('ProfilestecController', ['$scope', '$cordovaOauth', '$state', '$
             
             var request = $http({
               method: "post",
-              url: "http://61.91.124.155/repairservice_api/editprofile.php",
+              url: "http://61.91.124.155/repairservice_api/editprofile_tec.php",
               crossDomain: true,
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
               data: {
@@ -69,6 +69,36 @@ app.controller('ProfilestecController', ['$scope', '$cordovaOauth', '$state', '$
       ]
     });
 
+  }
+
+  $scope.update = function(status) {
+      var request = $http({
+              method: "post",
+              url: "http://61.91.124.155/repairservice_api/update_status.php",
+              crossDomain: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              data: {
+                username: $rootScope.username,
+                password: $rootScope.password,
+                status: status
+
+              },
+            });
+            request.success(function(data) {
+              if (data > 0) {
+                $ionicPopup.alert({
+                  title: 'Update Status Success',
+                  template: 'You have successfully update status'
+                });
+              } else {
+                $ionicPopup.alert({
+                  title: 'Profiles Information Failure',
+                  template: 'You have failed update status'
+                });
+              }
+
+            });
+            $state.go($state.current, {}, { reload: true });
   }
 
 
