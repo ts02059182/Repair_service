@@ -83,22 +83,24 @@ app.controller('RequestController', ['$scope', '$cordovaOauth', '$state', '$http
         tec: $scope.tec_id,
         appointment: $scope.request.appointment,
         contact: $scope.request.contact,
-        detail: $scope.request.contact,
+        detail: $scope.request.addition,
         lat: latvalue,
         long: lngvalue
       },
     });
 
     request.success(function(data) {
-      if (data > 0) {
-        // $ionicPopup.alert({
-        //   title: 'Data Send Success',
-        //   template: 'You have successfully send request'
-        // });
-        // $ionicHistory.nextViewOptions({
-        //   disableBack: true
-        // });
-        //  $state.go('menu.home');
+      if (data > 0 && $scope.imgURI1 == undefined && $scope.imgURI2 == undefined && $scope.imgURI3 == undefined) {
+        $ionicPopup.alert({
+          title: 'Data Send Success',
+          template: 'You have successfully send request'
+        });
+        $ionicHistory.nextViewOptions({
+          disableBack: true
+        });
+         $state.go('menu.home');
+        
+      } else if(data > 0){
         if($scope.imgURI1 != undefined){
             uploadimg(1,data);
         }
