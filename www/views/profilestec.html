@@ -1,29 +1,33 @@
 <ion-view view-title="Profiles" cache-view="false" class="auth-bg background-login">
  
   <ion-content ng-controller="ProfilestecController">
- <div class="list list-inset">
-        <label class="item item-input">
-        	<span class="input-label">Fristname</span>
-          <input type="text" placeholder="Fname" >
-        </label>
-        <label class="item item-input">
-        	<span class="input-label">Lastname</span>
-          <input type="text" placeholder="Lname" >
-        </label>
-        <label class="item item-input">
-        	<span class="input-label">Moblie</span>
-          <input type="text" placeholder="Moblie" >
-        </label>
-         <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="text" name="email" placeholder="Email"  pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{1,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})">
-        </label>
-        <label class="item item-input">
-        	<span class="input-label">Job</span>
-          <input type="text" placeholder="Job" >
-        </label>
+ <div class="row" ng-repeat="group in profile">
+      <div class="col">
+        <ion-item style="background-color: white">
+          <p style="margin-left: 2%">
+            <div>
+              <font size="4">Name : {{group.fname}}  {{group.lname}}</font>
+              <br><br>
+              <font size="4">Phone No. : {{group.phone}}</font>
+              <br><br>
+              <font size="4">Email : {{group.email}}</font>
+              <br><br>
+              <font size="4">Status : {{group.status}}</font>
+              <br><br>
+            </div>
+            <a ng-click="toedit(group)">
+                <i class="icon icon ion-compose" style="font-size: 35px;"></i>
+            </a>
+          </p>
+        </ion-item>
       </div>
+    </div>
+    
+<button class="button button-large button-balanced" ng-click="toonline()" >online</button>
 
+<button class="button button-large button-assertive" ng-click="tobusy()">busy</button>
+
+<button class="button button-large button-dark" ng-click="tooffline()">offline</button>
 
   </ion-content>
 </ion-view>
