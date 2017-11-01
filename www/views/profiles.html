@@ -8,17 +8,14 @@
           <p style="margin-left: 2%">
             <div>
               <font size="4">Name : {{group.fname}}  {{group.lname}}</font>
-              <br>
+              <br><br>
               <font size="4">Phone No. : {{group.phone}}</font>
-              <br>
+              <br><br>
               <font size="4">Email : {{group.email}}</font>
-              <br>
+              <br><br>
             </div>
-            <a ng-click="toedit()">
+            <a ng-click="toedit(group)">
                 <i class="icon icon ion-compose" style="font-size: 35px;"></i>
-            </a>
-            <a ng-click="todelete()">
-                <i class="icon icon ion-trash-b" style="font-size: 35px;margin-left: 10%"></i>
             </a>
           </p>
         </ion-item>
