@@ -3,8 +3,25 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
   window.cordovaOauth = $cordovaOauth;
   window.http = $http;
 
-  $scope.username = $state.params.username;
-  $scope.password = $state.params.password;
+  
+
+  var request = $http({
+        method: "post",
+        url: "http://61.91.124.155/repairservice_api/getservicetec.php",
+        crossDomain: true,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        data: {
+          username: $rootScope.username,
+          password: $rootScope.password
+        },
+      });
+
+      request.success(function(response) {
+        $scope.service = response.service; 
+      });
+    
+
+
 
   cordova.plugins.backgroundMode.enable();
 
@@ -36,101 +53,49 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
     }, 3000);
   }
 
+ $scope.update = function(status,group) {
 
+  
 
+      var request = $http({
+              method: "post",
+              url: "http://61.91.124.155/repairservice_api/update_tecstatus.php",
+              crossDomain: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              data: {
+               
+                status: status,
+                fixid: group.id
 
+              },
+            });
+            request.success(function(data) {
+              if (data > 0) {
+                $ionicPopup.alert({
+                  title: 'Update Status Success',
+                  template: 'You have successfully update status'
+                });
+              } else {
+                $ionicPopup.alert({
+                  title: 'Profiles Information Failure',
+                  template: 'You have failed update status'
+                });
+              }
 
-
-
-  $scope.toonline = function() {
-    $scope.online = 'online';
-    var request = $http({
-      method: "post",
-      url: "http://61.91.124.155/repairservice_api/tec_status.php",
-      crossDomain: true,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      data: {
-        username: $scope.username,
-        password: $scope.password,
-        status: $scope.online
-      },
-    });
-
-    request.success(function(data) {
-      // console.log(data);
-      if (data == 0) {
-        alert('fail');
-      } else {
-        alert($scope.online);
-      }
-
-
-
-    });
-
-  }
-
-  $scope.tobusy = function() {
-    $scope.online = 'busy';
-    var request = $http({
-      method: "post",
-      url: "http://61.91.124.155/repairservice_api/tec_status.php",
-      crossDomain: true,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      data: {
-        username: $scope.username,
-        password: $scope.password,
-        status: $scope.online
-      },
-    });
-
-    request.success(function(data) {
-      // console.log(data);
-      if (data == 0) {
-        alert('fail');
-      } else {
-        alert($scope.online);
-      }
-
-
-
-    });
-
-  }
-  $scope.tooffline = function() {
-    $scope.online = 'offline';
-    var request = $http({
-      method: "post",
-      url: "http://61.91.124.155/repairservice_api/tec_status.php",
-      crossDomain: true,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      data: {
-        username: $scope.username,
-        password: $scope.password,
-        status: $scope.online
-      },
-    });
-
-    request.success(function(data) {
-      // console.log(data);
-      if (data == 0) {
-        alert('fail');
-      } else {
-        alert($scope.online);
-      }
-
-
-
-    });
-
+            });
+            $state.go($state.current, {}, { reload: true });
   }
 
 
-  $scope.touser = function() {
-    alert('user');
-  }
-  $scope.towork = function() {
-    alert('work');
-  }
+
+
+
+
+  
+
+ 
+
+
+
 
 }])

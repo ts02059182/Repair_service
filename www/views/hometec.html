@@ -1,25 +1,36 @@
-<ion-view view-title="Services" cache-view="false" class="auth-bg background-login">
- 
-  <ion-content ng-controller="HometecController">
-  <div class="list padding">
- 
-</div>
- <div class="list padding">
-  <div class = "item item-icon-left item-icon-right" ng-click="touser()">
-      <i class = "icon ion-person-stalker"></i>
-      <i class = "icon ion-ios-arrow-forward"></i>
-      ลูกค้าที่แจ้งเข้ามา
-   </div>
-    <div class = "item item-icon-left item-icon-right" ng-click="towork()">
-      <i class = "icon ion-navigate"></i>
-      <i class = "icon ion-ios-arrow-forward"></i>
-      รายการนัดการทำงาน
-   </div>
-
+  <ion-view view-title="Services" cache-view="false" class="auth-bg background-login">
    
-   
-</div>
+    <ion-content ng-controller="HometecController">
+   <div class="row" ng-repeat="group in service">
+        <div class="col">
+          <ion-item style="background-color: white">
+            <p style="margin-left: 2%">
+              <div>
+                <font size="3">Customer Name : {{group.cus_fname}} {{group.cus_lname}}</font>
+                <br><br>
+                <font size="3">Phone : {{group.contact}}</font>
+                <br><br>
+                <font size="3">Appointment Date : {{group.appointment}}</font>
+                <br><br>
+                <font size="3">Detail : {{group.detail}}</font>
+                <br><br>
+                <font size="3">Status : {{group.statusName}}</font>
+                <br><br>
+              </div>
+          <p style="text-align: center;">    
+          <button class="button button-large button-balanced" ng-click="update(2,group)" >Accept</button>
+
+          <button class="button button-large button-assertive" ng-click="update(3,group)">Cancel</button>
+
+          </p>
+
+            </p>
+          </ion-item>
+
+        </div>
+      </div>
 
 
-  </ion-content>
-</ion-view>
+
+    </ion-content>
+  </ion-view>

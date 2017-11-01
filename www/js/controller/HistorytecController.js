@@ -2,7 +2,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
 
   var request = $http({
         method: "post",
-        url: "http://61.91.124.155/repairservice_api/getservicetec.php",
+        url: "http://61.91.124.155/repairservice_api/gethistorytec.php",
         crossDomain: true,
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: {
