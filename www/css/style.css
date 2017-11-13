@@ -10486,4 +10486,9 @@ You can add custom components
 }
 
 .angular-google-map-container { height: 400px; }
+
+ul.rating li {
+  display: inline;
+  padding: 2px 5px;
+}
     

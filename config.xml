@@ -15,6 +15,7 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="KeepRunning" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -39,7 +40,7 @@
     <plugin name="cordova-plugin-file-transfer" spec="~1.6.1" />
     <plugin name="cordova-plugin-geolocation" spec="~2.4.1" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.0.7">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBShHXSCHVBaTt0g2ndJClvpuitY3ak4sE" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAtQoOrxQwkhWoZ4bprAB9b-uVqIenp46w" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAtpoMgYzlivLCVglB0fCDi-PzPaf8ekgA" />
         <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="My custom when in use message" />
         <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="My custom always usage message" />
@@ -53,5 +54,6 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.3.0" />
     <plugin name="cordova-sqlite-ext" spec="^0.10.5" />
     <plugin name="cordova.plugins.diagnostic" spec="~3.3.2" />
+    <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
     <plugin name="org.pbernasconi.progressindicator" spec="https://github.com/pbernasconi/cordova-progressIndicator.git" />
 </widget>

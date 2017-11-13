@@ -3,6 +3,10 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
   $ionicPlatform.ready(function(timeout, ionicLoading) {
     $scope.catergory = $state.params.catergory;
 
+    $scope.rating = {};
+  $scope.rating.rate = 3;
+  $scope.rating.max = 5;
+
     var im = 'file:///android_asset/www/img/workshop.png';
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
@@ -60,7 +64,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
             return function() {
               var confirmPopup = $ionicPopup.confirm({
                 title: 'Technician Info',
-                template: 'Name: ' + $scope.lat_long[k].fname + '' + $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone
+                template: 'Name: ' + $scope.lat_long[k].fname + '' + $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone + '<br>' + '<div><rating ng-model=' + '"' + $scope.lat_long[k].rating + '"' +'max="5" readonly="true"></rating></div>'
               });
 
               confirmPopup.then(function(res) {
@@ -99,7 +103,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
       }, 5000);
 
-      
+
     }
 
 
@@ -107,7 +111,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
   $ionicPlatform.registerBackButtonAction(function(event) {
 
-      $ionicHistory.goBack();
+    $ionicHistory.goBack();
 
   }, 101);
 
