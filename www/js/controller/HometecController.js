@@ -17,11 +17,12 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
       });
 
       request.success(function(response) {
-        $scope.service = response.service; 
+        $scope.service = response.service;
+        $scope.photo = response.photo;   
       });
-    
 
-
+      var url = "http://61.91.124.155/repairservice_api/upload/1509449389101.jpg";
+      //$scope.imgURI1 = url;
 
   cordova.plugins.backgroundMode.enable();
 
