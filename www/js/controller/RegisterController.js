@@ -5,7 +5,8 @@ app.controller('RegisterController', ['$scope', '$state', '$http', '$cordovaNetw
         $state.go('master')
     }
 
-    $scope.add_register = function(username,password,conpassword,name,lname,email,mobile) {
+    $scope.add_register = function(username,password,conpassword,name,lname,email,mobile,type) {
+        
         if (username == undefined) {
             alert("please input username");
         } else if (password == undefined) {
@@ -22,6 +23,8 @@ app.controller('RegisterController', ['$scope', '$state', '$http', '$cordovaNetw
             alert("please input email");
         } else if (mobile == undefined) {
             alert("please input mobile");
+        } else if(type == undefined){
+            alert("please select type");
         } else {
             var request = $http({
                 method: "post",
@@ -34,7 +37,8 @@ app.controller('RegisterController', ['$scope', '$state', '$http', '$cordovaNetw
                     name: name,
                     lname: lname,
                     email: email,
-                    mobile: mobile
+                    mobile: mobile,
+                    type: type
                 },
             });
 

@@ -37,6 +37,7 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
       controller: 'MasterController',
     })
     .state('register', {
+      cache: false,
       url: '/register',
       templateUrl: 'views/register.html',
       controller: 'RegisterController',
