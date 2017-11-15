@@ -2,12 +2,12 @@
  
   <ion-content ng-controller="RequestController">
 
-	<div class="auth_request" style="margin-bottom: 10%">
+  <div class="auth_request" style="margin-bottom: 10%">
     <div class="container animated fadeInUp">
       <div class="list list-inset">
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Appointment Date</span>
-                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='date')" onblur="(this.type='text')" ng-model="request.appointment">
+                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='datetime-local')" onblur="(this.type='text')" ng-model="request.appointment">
          </label>
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Contact Number</span>
