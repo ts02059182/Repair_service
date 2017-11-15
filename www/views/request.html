@@ -3,19 +3,19 @@
   <ion-content ng-controller="RequestController">
 
   <div class="auth_request" style="margin-bottom: 10%">
-    <div class="container animated fadeInUp">
+    <div class="container animated fadeInUp" ng-repeat="group in profile">
       <div class="list list-inset">
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Appointment Date</span>
-                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='datetime-local')" onblur="(this.type='text')" ng-model="request.appointment">
+                <input type="text" name="Appointment_Date" placeholder="Appointment Date" onfocus="(this.type='datetime-local')" onblur="(this.type='text')" ng-model="group.appointment">
          </label>
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Contact Number</span>
-                <input type="tel" name="Contact_Number" placeholder="Contact Number" ng-model="request.contact">
+                <input type="tel" name="Contact_Number" placeholder="Contact Number" ng-model="group.phone">
         </label>
         <label class="item item-input item-floating-label" style="background: White ;">
                 <span class="input-label">Addition detail</span>
-                <input type="text" name="Addition_detail" placeholder="Addition detail" ng-model="request.addition">
+                <input type="text" name="Addition_detail" placeholder="Addition detail" ng-model="group.addition">
             </label>
       </div>
       <p style="text-align: center">
@@ -28,7 +28,7 @@
 
               
     </p>
-      <button class="button button-small button-full button-assertive login" ng-click="confirm(request)">Confirm</button>
+      <button class="button button-small button-full button-assertive login" ng-click="confirm(group)">Confirm</button>
     </div>
   </div>
 

@@ -16,6 +16,21 @@ app.controller('RequestController', ['$scope', '$cordovaOauth', '$state', '$http
     $scope.user_id = data;
   });
 
+  var request = $http({
+    method: "post",
+    url: "http://61.91.124.155/repairservice_api/getprofile.php",
+    crossDomain: true,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    data: {
+      username: $rootScope.username,
+      password: $rootScope.password
+    },
+  });
+
+  request.success(function(response) {
+    $scope.profile = response.profile;
+  });
+
   document.addEventListener('deviceready', function() {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   });
@@ -71,8 +86,7 @@ app.controller('RequestController', ['$scope', '$cordovaOauth', '$state', '$http
 
   }
 
-  $scope.confirm = function(request) {
-
+  $scope.confirm = function(group) {
     var request = $http({
       method: "post",
       url: "http://61.91.124.155/repairservice_api/insertrequest.php",
@@ -81,9 +95,9 @@ app.controller('RequestController', ['$scope', '$cordovaOauth', '$state', '$http
       data: {
         user: $scope.user_id,
         tec: $scope.tec_id,
-        appointment: $scope.request.appointment,
-        contact: $scope.request.contact,
-        detail: $scope.request.addition,
+        appointment: group.appointment,
+        contact: group.phone,
+        detail: group.addition,
         lat: latvalue,
         long: lngvalue
       },
