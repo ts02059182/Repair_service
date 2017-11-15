@@ -62,9 +62,16 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
           google.maps.event.addListener(techMarker, 'click', (function(techMarker, k) {
             return function() {
+              if($scope.lat_long[k].status == 1){
+                  $scope.status_tec = "Online";
+              } else if($scope.lat_long[k].status == 2){
+                  $scope.status_tec = "Busy";
+              } else {
+                  $scope.status_tec = "Offline";
+              }
               var confirmPopup = $ionicPopup.confirm({
                 title: 'Technician Info',
-                template: 'Name: ' + $scope.lat_long[k].fname + '' + $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone + '<br>' + '<div><rating ng-model=' + '"' + $scope.lat_long[k].rating + '"' +'max="5" readonly="true"></rating></div>'
+                template: '<img style="width: 90px;height: 100px;margin-right: 5%" ng-src="http://61.91.124.155/repairservice_api/' + $scope.lat_long[k].photo + '">' + '<br>'  + 'Name: ' + $scope.lat_long[k].fname + '' + $scope.lat_long[k].lname + '<br>' + 'Phone: ' + $scope.lat_long[k].phone + '<br>' + 'Status: ' + $scope.status_tec + '<br>' + '<div><rating ng-model=' + '"' + $scope.lat_long[k].rating + '"' +'max="5" readonly="true"></rating></div>'
               });
 
               confirmPopup.then(function(res) {
