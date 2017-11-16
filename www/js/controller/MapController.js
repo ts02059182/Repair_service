@@ -47,6 +47,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
       });
 
       request.success(function(response) {
+        console.log(response);
         $scope.lat_long = response.lat_long;
         angular.forEach($scope.lat_long, function(a, k) {
           tlat = parseFloat(a.lat);
@@ -68,6 +69,9 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
                   $scope.status_tec = "Busy";
               } else {
                   $scope.status_tec = "Offline";
+              }
+              if($scope.lat_long[k].photo == null){
+                $scope.lat_long[k].photo = "upload_tec/default_fixman.png";
               }
               var confirmPopup = $ionicPopup.confirm({
                 title: 'Technician Info',

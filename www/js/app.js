@@ -1,5 +1,5 @@
 
-var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.router','ngAnimate','ionic.rating'])
+var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.router','ngAnimate','ionic.rating','ion-datetime-picker'])
 
 
 
@@ -41,6 +41,12 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
       url: '/register',
       templateUrl: 'views/register.html',
       controller: 'RegisterController',
+    })
+    .state('updateprofile', {
+      cache: false,
+      url: '/updateprofile',
+      templateUrl: 'views/updateprofile.html',
+      controller: 'UpdateprofileController',
     })
 
     .state('menu.home', {
