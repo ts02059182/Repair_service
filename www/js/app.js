@@ -1,5 +1,5 @@
 
-var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.router','ngAnimate','ionic.rating','ion-datetime-picker'])
+var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.router','ngAnimate','ionic.rating'])
 
 
 
