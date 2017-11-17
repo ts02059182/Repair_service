@@ -1,29 +1,9 @@
 <ion-view view-title="History" cache-view="false" class="auth-bg background-login">
- 
-  <ion-content ng-controller="HistoryController">
-	<div class="row" ng-repeat="group in history">
-      <div class="col">
-        <ion-item style="background-color: white">
-          <p style="margin-left: 2%">
-            <div>
-              <font size="3">Service : {{group.service}}</font>
-              <br><br>
-              <font size="3">Technician Name : {{group.fname}} {{group.lname}}</font>
-              <br><br>
-              <font size="3">Phone : {{group.phone}}</font>
-              <br><br>
-              <font size="3">Appointment Date : {{group.appointment}}</font>
-              <br><br>
-              <font size="3">Detail : {{group.detail}}</font>
-              <br><br>
-              <font size="3">Status : {{group.status}}</font>
-              <br><br>
-            </div>
-          </p>
-        </ion-item>
-      </div>
+  <ion-content>
+    <div class="item item-divider">
+      {{viewTitle}}
     </div>
-
-
+    <calendar calendar-mode="mode" event-source="calendar.eventSource" range-changed="reloadSource(startTime, endTime)" event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)" step="30">
+    </calendar>
   </ion-content>
 </ion-view>
