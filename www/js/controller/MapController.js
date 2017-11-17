@@ -79,7 +79,7 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
 
               confirmPopup.then(function(res) {
                 if (res) {
-                  $state.go('menu.request', { tec_id: $scope.lat_long[k].id });
+                  $state.go('menu.worktec', { tec_id: $scope.lat_long[k].id });
                 } else {
 
                 }

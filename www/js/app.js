@@ -113,6 +113,19 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
         }
       })
 
+    .state('menu.worktec', {
+        url: '/worktec',
+        params: {
+                tec_id: null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/worktec.html',
+            controller: 'WorktecController'
+          }
+        }
+      })
+
     //tec
 
     .state('menutec.hometec', {
