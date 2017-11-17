@@ -47,7 +47,6 @@ app.controller('MapController', ['$scope', '$cordovaOauth', '$state', '$http', '
       });
 
       request.success(function(response) {
-        console.log(response);
         $scope.lat_long = response.lat_long;
         angular.forEach($scope.lat_long, function(a, k) {
           tlat = parseFloat(a.lat);
