@@ -52,13 +52,12 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
   });
 
   var url = "http://61.91.124.155/repairservice_api/upload/1509449389101.jpg";
-  //$scope.imgURI1 = url;
 
   cordova.plugins.backgroundMode.enable();
 
 
   cordova.plugins.backgroundMode.onactivate = function() {
-    var auto = $interval(function() {
+    $scope.Timer = $interval(function() {
       var request = $http({
         method: "post",
         url: "http://61.91.124.155/repairservice_api/getservicetec.php",
@@ -81,7 +80,11 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
         }
       });
 
-    }, 3000);
+    }, 5000);
+  }
+
+  cordova.plugins.backgroundMode.ondeactivate = function() {
+    $interval.cancel($scope.Timer);
   }
 
 
@@ -146,37 +149,54 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
           type: 'button-positive',
           onTap: function(e) {
 
-            var request = $http({
-              method: "post",
-              url: "http://61.91.124.155/repairservice_api/update_tecstatus.php",
-              crossDomain: true,
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              data: {
-                status: 2,
-                fixid: event.id
+            $ionicPopup.show({
+      template: '<form name="myform"> <div class="list padding hint"><ion-item class="item-floating-label" style="background: White ; margin-top: 2%;"> <span class="input-label">First Name</span> <input type="text" name="name" placeholder="First Name"></ion-item></div></form>',
+      title: 'New Job',
+      scope: $scope,
+      buttons: [
+        { text: '<b>Send</b>',
+          type: 'button-positive',
+          onTap: function(e) {
 
-              },
-            });
-            request.success(function(data) {
-              if (data > 0) {
-                $ionicPopup.alert({
-                  title: 'Update Status Success',
-                  template: 'You have successfully update status'
-                });
-              } else {
-                $ionicPopup.alert({
-                  title: 'Profiles Information Failure',
-                  template: 'You have failed update status'
-                });
-              }
-
-            });
-            $state.go($state.current, {}, { reload: true });
+            //$state.go($state.current, {}, { reload: true });
 
           }
         }
       ]
     });
+
+            // var request = $http({
+            //   method: "post",
+            //   url: "http://61.91.124.155/repairservice_api/update_tecstatus.php",
+            //   crossDomain: true,
+            //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            //   data: {
+            //     status: 2,
+            //     fixid: event.id
+
+            //   },
+            // });
+            // request.success(function(data) {
+            //   if (data > 0) {
+            //     $ionicPopup.alert({
+            //       title: 'Update Status Success',
+            //       template: 'You have successfully update status'
+            //     });
+            //   } else {
+            //     $ionicPopup.alert({
+            //       title: 'Profiles Information Failure',
+            //       template: 'You have failed update status'
+            //     });
+            //   }
+
+            // });
+            //$state.go($state.current, {}, { reload: true });
+
+          }
+        }
+      ]
+    });
+
   };
 
   function createEvents(service, photo) {
