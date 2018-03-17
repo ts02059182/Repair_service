@@ -169,6 +169,19 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
         }
       })
 
+    .state('menutec.directions', {
+        url: '/directions',
+        params: {
+                lat_lng: null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/directions.html',
+            controller: 'DirectionsController'
+          }
+        }
+      })
+
     ;
       
     $urlRouterProvider.otherwise('/master');

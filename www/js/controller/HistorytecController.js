@@ -41,9 +41,30 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
         '</div>',
       title: 'Job',
       scope: $scope,
-      buttons: [
-        { text: '<b>OK</b>',
+      buttons: [{
+          text: '<b>OK</b>',
           type: 'button-positive'
+        },
+        {
+          text: '<b>Directions</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            $ionicLoading.show({
+              content: 'Loading',
+              animation: 'fade-in',
+              showBackdrop: true,
+              maxWidth: 200,
+              showDelay: 0
+            });
+            var lat_lng = {
+              lat: parseFloat($scope.eventdata.lat),
+              lng: parseFloat($scope.eventdata.lng)
+            };
+            $timeout(function() {
+              $state.go('menutec.directions', { lat_lng: lat_lng });
+            }, 2000);
+          }
+
         }
       ]
     });
@@ -68,6 +89,8 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
       $scope.date = parseInt(a.appointment.substr(8, 2));
       $scope.hour = parseInt(a.appointment.substr(11, 2));
       $scope.minutes = parseInt(a.appointment.substr(14, 2));
+      $scope.lat = a.lat;
+      $scope.lng = a.lng;
 
 
       startTime = new Date($scope.year, $scope.month, $scope.date, $scope.hour, $scope.minutes);
@@ -84,7 +107,9 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
         fname: $scope.cus_fname,
         lname: $scope.lname,
         contact: $scope.contact,
-        appointment: $scope.appointment
+        appointment: $scope.appointment,
+        lat: $scope.lat,
+        lng: $scope.lng
       });
 
     });
