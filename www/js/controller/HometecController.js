@@ -93,6 +93,12 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
   };
 
   $scope.onEventSelected = function(event) {
+    
+    $scope.Fixdata = {};
+  
+
+
+
     $scope.eventdata = event;
     $ionicPopup.show({
       template: '<div class="row">' +
@@ -150,8 +156,21 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
           onTap: function(e) {
 
             $ionicPopup.show({
-      template: '<form name="myform"> <div class="list padding hint"><ion-item class="item-floating-label" style="background: White ; margin-top: 2%;"> <span class="input-label">First Name</span> <input type="text" name="name" placeholder="First Name"></ion-item></div></form>',
-      title: 'New Job',
+      template: '<form name="myform">' +
+      '<div class="list padding hint">' +
+      '<ion-item class="item-floating-label" style="background: White ; margin-top: 2%;">'+
+       '<span class="input-label">Cost</span> '+
+       // '<span class="input-label">Detail-list</span> '+
+       '<input type="text" name="detail_tec" ng-model="Fixdata.detail" placeholder="Detail"> ' +
+       // '<span class="input-label">Cost_product</span> '+
+       '<input type="number" name="moneyfix" ng-model="Fixdata.moneyfix" placeholder="Money-fix"> ' +
+       // '<span class="input-label">Cost_tec</span> '+
+       '<input type="number" name="moneytec" ng-model="Fixdata.moneytec" placeholder="Money-tec"> ' +
+       '</ion-item>'+
+       '</div>'+
+       '</form>',
+
+      title: 'Cost',
       scope: $scope,
       buttons: [
         { text: '<b>Send</b>',
@@ -159,6 +178,42 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
           onTap: function(e) {
 
             //$state.go($state.current, {}, { reload: true });
+
+            // alert($scope.Fixdata.detail);
+            // alert($scope.Fixdata.moneyfix);
+            // alert($scope.Fixdata.moneytec);
+            
+
+          var request = $http({
+              method: "post",
+              url: "http://61.91.124.155/repairservice_api/update_costfix.php",
+              crossDomain: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              data: {
+                status: 2,
+                fixid: event.id,
+                detail_tec: $scope.Fixdata.detail,
+                money_fix: $scope.Fixdata.moneyfix,
+                money_tec: $scope.Fixdata.moneytec
+
+              },
+            });
+
+               request.success(function(data) {
+              if (data > 0) {
+                $ionicPopup.alert({
+                  title: 'Send Detail Cost Success',
+                  template: 'You have successfully update Cost'
+                });
+              } else {
+                $ionicPopup.alert({
+                  title: 'Send Detail Cost Failure',
+                  template: 'You have failed update Cost'
+                });
+              }
+
+            });
+            $state.go($state.current, {}, { reload: true });
 
           }
         }
