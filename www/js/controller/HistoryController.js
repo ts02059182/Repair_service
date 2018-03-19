@@ -35,23 +35,43 @@ app.controller('HistoryController', ['$scope', '$cordovaOauth', '$state', '$http
     $scope.viewTitle = title;
   };
 
-  $scope.onEventSelected = function(event) {
-    $scope.eventdata = event;
-    $ionicPopup.show({
-      template: '<div class="row">' +
+  var template = '<div class="row">' +
         '<div class="col">' +
-        '<p style="background-color: white">' +
-        '<div >' +
+        '<p style="background-color: white;">' +
+        '<h4>Request Detail</h4>' +
+        '<div style="background-color: white;border-style: solid;border-width: 2px;">' +
+        '<br> &nbsp;' +
         '<font size="2">Service : {{eventdata.service}}</font> <br><br>' +
+        '&nbsp;' +
         '<font size="2">Customer Name : {{eventdata.fname}}  {{eventdata.lname}}</font> <br><br>' +
+        '&nbsp;' +
         '<font size="2">Phone : {{eventdata.contact}}</font> <br><br>' +
+        '&nbsp;' +
         '<font size="2">Appointment: {{eventdata.appointment}}</font> <br><br>' +
+        '&nbsp;' +
         '<font size="2">Detail : {{eventdata.detail}}</font> <br><br>' +
+        '&nbsp;' +
         '<font size="2">Status : {{eventdata.status}}</font> <br><br>' +
+        '</div>' +
+        '<br>' +
+        '<h4>Price Details</h4>' +
+        '<div style="background-color: white;border-style: solid;border-width: 2px;">' +
+        '<br> &nbsp;' +
+        '<font size="2">Equipment Detail: {{eventdata.detail_tec}}</font> <br><br>' +
+        '&nbsp;' +
+        '<font size="2">Equipment Price: {{eventdata.money_fix}}</font> <br><br>' +
+        '&nbsp;' +
+        '<font size="2">Technician Price: {{eventdata.money_tec}}</font> <br><br>' +
         '</div>' +
         '</p>' +
         '</div>' +
-        '</div>',
+        '</div>';
+
+  $scope.onEventSelected = function(event) {
+    $scope.eventdata = event;
+    if($scope.eventdata.status_id == 6){
+      $ionicPopup.show({
+      template: template,
       title: 'History',
       scope: $scope,
       buttons: [
@@ -62,7 +82,6 @@ app.controller('HistoryController', ['$scope', '$cordovaOauth', '$state', '$http
           text: '<b>Directions</b>',
           type: 'button-positive',
           onTap: function(e) {
-            console.log($scope.eventdata.id);
             $ionicLoading.show({
               content: 'Loading',
               animation: 'fade-in',
@@ -81,7 +100,90 @@ app.controller('HistoryController', ['$scope', '$cordovaOauth', '$state', '$http
 
         }
       ]
-    });
+      });
+    }else if($scope.eventdata.status_id == 5){
+      $ionicPopup.show({
+      template: template,
+      title: 'History',
+      scope: $scope,
+      buttons: [
+        { text: '<b>Reject</b>',
+          type: 'button-negative',
+          onTap: function(e) {
+            var request = $http({
+              method: "post",
+              url: "http://61.91.124.155/repairservice_api/update_tecstatus.php",
+              crossDomain: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              data: {
+                status: 3,
+                fixid: event.id
+
+              },
+            });
+            request.success(function(data) {
+              if (data > 0) {
+                $ionicPopup.alert({
+                  title: 'Update Status Success',
+                  template: 'You have successfully update status'
+                });
+              } else {
+                $ionicPopup.alert({
+                  title: 'Profiles Information Failure',
+                  template: 'You have failed update status'
+                });
+              }
+              $state.go($state.current, {}, { reload: true });
+            });
+          }
+        },
+        {
+          text: '<b>Accept</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            var request = $http({
+              method: "post",
+              url: "http://61.91.124.155/repairservice_api/update_tecstatus.php",
+              crossDomain: true,
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              data: {
+                status: 6,
+                fixid: event.id
+              },
+            });
+
+            request.success(function(data) {
+              if (data > 0) {
+                $ionicPopup.alert({
+                  title: 'Send Detail Cost Success',
+                  template: 'You have successfully update Cost'
+                });
+              } else {
+                $ionicPopup.alert({
+                  title: 'Send Detail Cost Failure',
+                  template: 'You have failed update Cost'
+                });
+              }
+
+            });
+            $state.go($state.current, {}, { reload: true });
+          }
+
+        }
+      ]
+      });
+    }else{
+      $ionicPopup.show({
+      template: template,
+      title: 'History',
+      scope: $scope,
+      buttons: [
+        { text: '<b>OK</b>',
+          type: 'button-positive'
+        }
+      ]
+      });
+    }
   };
 
 
@@ -108,6 +210,10 @@ app.controller('HistoryController', ['$scope', '$cordovaOauth', '$state', '$http
       $scope.lat = a.lat;
       $scope.lng = a.lng;
       $scope.cus_id = a.cus_id;
+      $scope.detail_tec = a.detail_tec;
+      $scope.money_fix = a.money_fix;
+      $scope.money_tec = a.money_tec;
+      $scope.status_id = a.status_id;
 
 
       startTime = new Date($scope.year, $scope.month, $scope.date, $scope.hour, $scope.minutes);
@@ -128,7 +234,11 @@ app.controller('HistoryController', ['$scope', '$cordovaOauth', '$state', '$http
         service: $scope.service,
         lat: $scope.lat,
         lng: $scope.lng,
-        cus_id: $scope.cus_id
+        cus_id: $scope.cus_id,
+        detail_tec: $scope.detail_tec,
+        money_fix: $scope.money_fix,
+        money_tec: $scope.money_tec,
+        status_id: $scope.status_id
       });
 
     });

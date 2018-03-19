@@ -159,13 +159,16 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
       template: '<form name="myform">' +
       '<div class="list padding hint">' +
       '<ion-item class="item-floating-label" style="background: White ; margin-top: 2%;">'+
-       '<span class="input-label">Cost</span> '+
-       // '<span class="input-label">Detail-list</span> '+
-       '<input type="text" name="detail_tec" ng-model="Fixdata.detail" placeholder="Detail"> ' +
-       // '<span class="input-label">Cost_product</span> '+
-       '<input type="number" name="moneyfix" ng-model="Fixdata.moneyfix" placeholder="Money-fix"> ' +
-       // '<span class="input-label">Cost_tec</span> '+
-       '<input type="number" name="moneytec" ng-model="Fixdata.moneytec" placeholder="Money-tec"> ' +
+       '<span class="input-label">Equipment Detail</span> '+
+       '<input type="text" name="detail_tec" ng-model="Fixdata.detail" placeholder="Equipment Detail"> ' +
+       '</ion-item>'+
+       '<ion-item class="item-floating-label" style="background: White ; margin-top: 2%;">'+
+       '<span class="input-label">Equipment Price</span> '+
+       '<input type="number" name="moneyfix" ng-model="Fixdata.moneyfix" placeholder="Equipment Price"> ' +
+       '</ion-item>'+
+       '<ion-item class="item-floating-label" style="background: White ; margin-top: 2%;">'+
+       '<span class="input-label">Technician Price</span> '+
+       '<input type="number" name="moneytec" ng-model="Fixdata.moneytec" placeholder="echnician Price"> ' +
        '</ion-item>'+
        '</div>'+
        '</form>',
@@ -177,20 +180,13 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
           type: 'button-positive',
           onTap: function(e) {
 
-            //$state.go($state.current, {}, { reload: true });
-
-            // alert($scope.Fixdata.detail);
-            // alert($scope.Fixdata.moneyfix);
-            // alert($scope.Fixdata.moneytec);
-            
-
           var request = $http({
               method: "post",
               url: "http://61.91.124.155/repairservice_api/update_costfix.php",
               crossDomain: true,
               headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
               data: {
-                status: 2,
+                status: 5,
                 fixid: event.id,
                 detail_tec: $scope.Fixdata.detail,
                 money_fix: $scope.Fixdata.moneyfix,
@@ -219,33 +215,6 @@ app.controller('HometecController', ['$scope', '$cordovaOauth', '$state', '$http
         }
       ]
     });
-
-            // var request = $http({
-            //   method: "post",
-            //   url: "http://61.91.124.155/repairservice_api/update_tecstatus.php",
-            //   crossDomain: true,
-            //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            //   data: {
-            //     status: 2,
-            //     fixid: event.id
-
-            //   },
-            // });
-            // request.success(function(data) {
-            //   if (data > 0) {
-            //     $ionicPopup.alert({
-            //       title: 'Update Status Success',
-            //       template: 'You have successfully update status'
-            //     });
-            //   } else {
-            //     $ionicPopup.alert({
-            //       title: 'Profiles Information Failure',
-            //       template: 'You have failed update status'
-            //     });
-            //   }
-
-            // });
-            //$state.go($state.current, {}, { reload: true });
 
           }
         }

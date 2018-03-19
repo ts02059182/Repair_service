@@ -75,7 +75,6 @@ app.controller('DirectionsController', ['$scope', '$cordovaOauth', '$state', '$h
           });
         });
 
-
       } else if ($scope.user_lv == 2) {
 
         var request = $http({

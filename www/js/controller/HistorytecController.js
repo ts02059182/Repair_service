@@ -24,6 +24,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
 
   $scope.onEventSelected = function(event) {
     $scope.eventdata = event;
+    if($scope.eventdata.status_id == 6){
     $ionicPopup.show({
       template: '<div class="row">' +
         '<div class="col">' +
@@ -68,6 +69,31 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
         }
       ]
     });
+  }else{
+    $ionicPopup.show({
+      template: '<div class="row">' +
+        '<div class="col">' +
+        '<p style="background-color: white">' +
+        '<div >' +
+        '<font size="2">Customer Name : {{eventdata.fname}}  {{eventdata.lname}}</font> <br><br>' +
+        '<font size="2">Phone : {{eventdata.contact}}</font> <br><br>' +
+        '<font size="2">Appointment: {{eventdata.appointment}}</font> <br><br>' +
+        '<font size="2">Detail : {{eventdata.detail}}</font> <br><br>' +
+        '<font size="2">Status : {{eventdata.status}}</font> <br><br>' +
+        '</div>' +
+        '<img ng-repeat="groups in photo" ng-if="eventdata.id == groups.fixid " style="width: 100px;height: 100px;margin-right: 5%" ng-src="http://61.91.124.155/repairservice_api/{{groups.photo}}">' +
+        '</p>' +
+        '</div>' +
+        '</div>',
+      title: 'Job',
+      scope: $scope,
+      buttons: [{
+          text: '<b>OK</b>',
+          type: 'button-positive'
+        }
+      ]
+    });
+  }
   };
 
   function createEvents(service) {
@@ -92,6 +118,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
       $scope.lat = a.lat;
       $scope.lng = a.lng;
       $scope.tec_id = a.tec_id;
+      $scope.status_id = a.status_id;
 
 
       startTime = new Date($scope.year, $scope.month, $scope.date, $scope.hour, $scope.minutes);
@@ -111,7 +138,8 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
         appointment: $scope.appointment,
         lat: $scope.lat,
         lng: $scope.lng,
-        tec_id: $scope.tec_id
+        tec_id: $scope.tec_id,
+        status_id: $scope.status_id
       });
 
     });
