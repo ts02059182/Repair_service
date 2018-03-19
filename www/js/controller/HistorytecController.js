@@ -61,7 +61,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
               lng: parseFloat($scope.eventdata.lng)
             };
             $timeout(function() {
-              $state.go('menutec.directions', { lat_lng: lat_lng,user: 2,id: $scope.eventdata.tec_id});
+              $state.go('menutec.directions', { lat_lng: lat_lng,user: 2,id: $scope.eventdata.id});
             }, 2000);
           }
 
@@ -83,7 +83,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
       $scope.cus_lname = a.cus_lname;
       $scope.contact = a.contact;
       $scope.appointment = a.appointment;
-      $scope.fixid = a.id;
+      $scope.fixid = a.fixid;
       $scope.year = parseInt(a.appointment.substr(0, 4));
       $scope.month = parseInt(a.appointment.substr(5, 2) - 1);
       $scope.date = parseInt(a.appointment.substr(8, 2));
