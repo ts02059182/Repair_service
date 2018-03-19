@@ -61,7 +61,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
               lng: parseFloat($scope.eventdata.lng)
             };
             $timeout(function() {
-              $state.go('menutec.directions', { lat_lng: lat_lng });
+              $state.go('menutec.directions', { lat_lng: lat_lng,user: 2,id: $scope.eventdata.tec_id});
             }, 2000);
           }
 
@@ -91,6 +91,7 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
       $scope.minutes = parseInt(a.appointment.substr(14, 2));
       $scope.lat = a.lat;
       $scope.lng = a.lng;
+      $scope.tec_id = a.tec_id;
 
 
       startTime = new Date($scope.year, $scope.month, $scope.date, $scope.hour, $scope.minutes);
@@ -109,7 +110,8 @@ app.controller('HistorytecController', ['$scope', '$cordovaOauth', '$state', '$h
         contact: $scope.contact,
         appointment: $scope.appointment,
         lat: $scope.lat,
-        lng: $scope.lng
+        lng: $scope.lng,
+        tec_id: $scope.tec_id
       });
 
     });

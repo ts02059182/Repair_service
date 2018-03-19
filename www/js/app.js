@@ -172,7 +172,9 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
     .state('menutec.directions', {
         url: '/directions',
         params: {
-                lat_lng: null
+                lat_lng: null,
+                user: null,
+                id: null
         },
         views: {
           'pageContent': {
