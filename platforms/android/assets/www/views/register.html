@@ -24,8 +24,18 @@
         <label class="item item-input">
           <input type="text" placeholder="mobile" ng-model="mobile">
         </label>
+        <label class="item item-input item-select">
+         <div class="input-label">
+                    Select type:
+        </div> 
+        <select ng-model="type">
+                    <option value="" selected></option>
+                    <option name="type" value="2">Customer</option>
+                    <option name="type" value="3">Tecnician</option>
+        </select>
+      </label>
       </div>
-      <button class="button button-small button-full button-assertive login" ng-click="add_register(username,password,conpassword,name,lname,email,mobile)">SignUp</button>
+      <button class="button button-small button-full button-assertive login" ng-click="add_register(username,password,conpassword,name,lname,email,mobile,type)">SignUp</button>
     </div>
   </div>
   </ion-content>

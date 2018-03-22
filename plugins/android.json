@@ -85,6 +85,12 @@
         "cordova-plugin-googlemaps": {
             "API_KEY_FOR_ANDROID": "AIzaSyBShHXSCHVBaTt0g2ndJClvpuitY3ak4sE",
             "PACKAGE_NAME": "com.mut.repairservice"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.mut.repairservice"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.mut.repairservice"
         }
     },
     "dependent_plugins": {
@@ -93,6 +99,9 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.loyaltyprogram436636"
+        },
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.mut.repairservice"
         }
     }
 }

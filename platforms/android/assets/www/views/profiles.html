@@ -2,6 +2,25 @@
  
   <ion-content ng-controller="ProfilesController">
 
+	<div class="row" ng-repeat="group in profile">
+      <div class="col">
+        <ion-item style="background-color: white">
+          <p style="margin-left: 2%">
+            <div>
+              <font size="4">Name : {{group.fname}}  {{group.lname}}</font>
+              <br><br>
+              <font size="4">Phone No. : {{group.phone}}</font>
+              <br><br>
+              <font size="4">Email : {{group.email}}</font>
+              <br><br>
+            </div>
+            <a ng-click="toedit(group)">
+                <i class="icon icon ion-compose" style="font-size: 35px;"></i>
+            </a>
+          </p>
+        </ion-item>
+      </div>
+    </div>
 
 
   </ion-content>

@@ -227,5 +227,29 @@
             "LOCATION_WHEN_IN_USE_DESCRIPTION": "My custom when in use message",
             "LOCATION_ALWAYS_USAGE_DESCRIPTION": "My custom always usage message"
         }
+    },
+    "cordova-plugin-background-mode": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-background-mode@^0.7.2"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+        "source": {
+            "type": "registry",
+            "id": "de.appplant.cordova.plugin.local-notification@^0.8.5"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-app-event": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-app-event"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }

@@ -40,7 +40,7 @@
     <plugin name="cordova-plugin-file-transfer" spec="~1.6.1" />
     <plugin name="cordova-plugin-geolocation" spec="~2.4.1" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.0.7">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAtQoOrxQwkhWoZ4bprAB9b-uVqIenp46w" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBShHXSCHVBaTt0g2ndJClvpuitY3ak4sE" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyAtpoMgYzlivLCVglB0fCDi-PzPaf8ekgA" />
         <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="My custom when in use message" />
         <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="My custom always usage message" />

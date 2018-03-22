@@ -1,5 +1,5 @@
 
-var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.router','ngAnimate'])
+var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.router','ngAnimate','ionic.rating','ui.rCalendar'])
 
 
 
@@ -17,6 +17,7 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
 
         });
     })
+
     .config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
     $sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http[s]?):\/\/(w{3}.)?youtube\.com/.+$')]);
@@ -36,13 +37,23 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
       controller: 'MasterController',
     })
     .state('register', {
+      cache: false,
       url: '/register',
       templateUrl: 'views/register.html',
       controller: 'RegisterController',
     })
+    .state('updateprofile', {
+      cache: false,
+      url: '/updateprofile',
+      templateUrl: 'views/updateprofile.html',
+      controller: 'UpdateprofileController',
+    })
 
     .state('menu.home', {
         url: '/home',
+        params: {
+                catergory: null
+        },
         views: {
           'pageContent': {
             templateUrl: 'views/home.html',
@@ -51,17 +62,129 @@ var app = angular.module('starter', ['ionic', 'ngCordova','ngCordovaOauth', 'ui.
         }
       })
 
+    .state('menu.history', {
+        url: '/history',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/history.html',
+            controller: 'HistoryController'
+          }
+        }
+      })
+
+    .state('menu.profiles', {
+        url: '/profiles',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/profiles.html',
+            controller: 'ProfilesController'
+          }
+        }
+      })
+
+     
+  
+
+
     .state('menu.map', {
         url: '/map',
+        params: {
+                catergory: null,
+                tec_id: null
+        },
         views: {
           'pageContent': {
             templateUrl: 'views/map.html',
             controller: 'MapController'
           }
         }
-      });
+      })
 
+    .state('menu.request', {
+        url: '/request',
+        params: {
+                tec_id: null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/request.html',
+            controller: 'RequestController'
+          }
+        }
+      })
 
+    .state('menu.worktec', {
+        url: '/worktec',
+        params: {
+                tec_id: null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/worktec.html',
+            controller: 'WorktecController'
+          }
+        }
+      })
+
+    //tec
+
+    .state('menutec.hometec', {
+        url: '/hometec',
+        params:{
+          username:null,
+          password:null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/hometec.html',
+            controller: 'HometecController'
+          }
+        }
+      })
+
+    .state('menutec', {
+      url: '/menutec',
+      abstract: true,
+      templateUrl: 'views/menutec.html',
+      controller: 'MenutecController as menutec'
+    })
+
+    .state('menutec.historytec', {
+        url: '/historytec',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/historytec.html',
+            controller: 'HistorytecController'
+          }
+        }
+      })
+
+    .state('menutec.profilestec', {
+        url: '/profilestec',
+        views: {
+          'pageContent': {
+            templateUrl: 'views/profilestec.html',
+            controller: 'ProfilestecController'
+          }
+        }
+      })
+
+    .state('menutec.directions', {
+        url: '/directions',
+        params: {
+                lat_lng: null,
+                user: null,
+                id: null
+        },
+        views: {
+          'pageContent': {
+            templateUrl: 'views/directions.html',
+            controller: 'DirectionsController'
+          }
+        }
+      })
+
+    ;
       
     $urlRouterProvider.otherwise('/master');
     })

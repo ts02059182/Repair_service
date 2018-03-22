@@ -32,7 +32,9 @@
         "gulp-rename": "^1.2.0",
         "gulp-sass": "^2.0.4",
         "org.pbernasconi.progressindicator": "https://github.com/pbernasconi/cordova-progressIndicator.git",
-        "cordova-plugin-geolocation": "~2.4.1"
+        "cordova-plugin-geolocation": "~2.4.1",
+        "cordova-plugin-background-mode": "^0.7.2",
+        "de.appplant.cordova.plugin.local-notification": "^0.8.5"
     },
     "devDependencies": {
         "@ionic/cli-plugin-cordova": "1.6.2",
@@ -68,7 +70,9 @@
         "cordova-sqlite-ext",
         "cordova-sqlite-ext@^0.10.5",
         "cordova-plugin-inappbrowser",
-        "cordova-plugin-googlemaps"
+        "cordova-plugin-googlemaps",
+        "cordova-plugin-background-mode@^0.7.2",
+        "de.appplant.cordova.plugin.local-notification@^0.8.5"
     ],
     "cordovaPlatforms": [],
     "cordova": {
@@ -96,7 +100,9 @@
                 "LOCATION_WHEN_IN_USE_DESCRIPTION": "My custom when in use message",
                 "LOCATION_ALWAYS_USAGE_DESCRIPTION": "My custom always usage message"
             },
-            "cordova-plugin-geolocation": {}
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-background-mode": {},
+            "de.appplant.cordova.plugin.local-notification": {}
         },
         "platforms": [
             "android"
